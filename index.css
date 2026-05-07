@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #0a0c10;
+    --bg2: #111318;
+    --bg3: #181c24;
+    --bg4: #1e2330;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.12);
+    --text: #e8eaf2;
+    --text2: #8b92a8;
+    --text3: #565d72;
+    --accent: #6C63FF;
+    --accent2: #8B85FF;
+    --accent3: #a5a0ff;
+    --green: #10d9a8;
+    --amber: #f5a623;
+    --red: #ff5c7a;
+    --blue: #4da6ff;
+    --pink: #ff7eb3;
+  }
+
+  .light {
+    --bg: #f5f6fa;
+    --bg2: #ffffff;
+    --bg3: #f0f1f8;
+    --bg4: #e8e9f5;
+    --border: rgba(0,0,0,0.07);
+    --border2: rgba(0,0,0,0.12);
+    --text: #1a1d2e;
+    --text2: #5a6080;
+    --text3: #9499b5;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: 'Sora', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+  }
+
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--bg4); border-radius: 10px; }
+}
+
+@layer components {
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+  }
+
+  .card-sm {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: 'Sora', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    background: var(--accent2);
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .btn-secondary {
+    background: var(--bg3);
+    color: var(--text2);
+    border: 1px solid var(--border2);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: 'Sora', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .btn-secondary:hover {
+    color: var(--text);
+    border-color: var(--accent);
+  }
+
+  .input-base {
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 15px;
+    color: var(--text);
+    font-family: 'Sora', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .input-base:focus { border-color: var(--accent); }
+  .input-base::placeholder { color: var(--text3); }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+  }
+
+  .tag-blue { background: rgba(77,166,255,0.15); color: var(--blue); }
+  .tag-green { background: rgba(16,217,168,0.15); color: var(--green); }
+  .tag-purple { background: rgba(108,99,255,0.15); color: var(--accent3); }
+  .tag-amber { background: rgba(245,166,35,0.15); color: var(--amber); }
+  .tag-red { background: rgba(255,92,122,0.15); color: var(--red); }
+
+  .loader-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--border2);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--accent2), var(--green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 10px;
+  }
+
+  .code-block {
+    background: var(--bg);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: #a5d6a7;
+    overflow-x: auto;
+    margin-top: 10px;
+    border: 1px solid var(--border);
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    gap: 12px;
+    text-align: center;
+    color: var(--text2);
+  }
+}
